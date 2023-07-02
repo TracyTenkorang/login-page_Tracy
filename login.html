@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #bcb8b8;
+    }
+    
+    .form-container {
+      padding: 20px;
+      border-radius: 5px;
+      width: 80%;
+      max-width: 350px;
+      margin-top: 50px;
+      margin-left: auto;
+      margin-right: auto;
+      
+    }
+    
+    .form-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .form-container input[type="text"],
+    .form-container input[type="password"] {
+      width: 95%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    
+    .form-container input[type="submit"] {
+      background-color: #504e4e;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-left: 40px;
+    }
+    
+    .form-container input[type="submit"]:hover {
+      background-color: #bebebe;
+    }
+    
+    .logo {
+      text-align: center;
+      margin-top: -40%;
+    }
+    
+    .logo img {
+      max-width: 150px;
+      height: auto;
+    }
+    
+    .toggle-container {
+      position: absolute;
+      top: 10px;
+      right: 76.5%;
+    }
+    
+    .toggle-container label {
+      display: inline-block;
+      position: relative;
+      width: 40px;
+      height: 20px;
+    }
+    
+    .toggle-container input[type="checkbox"] {
+      display: none;
+    }
+    
+    .toggle-container span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      cursor: pointer;
+      background-color: #ccc;
+      border-radius: 20px;
+      transition: background-color 0.3s;
+    }
+    
+    .toggle-container span:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: 3px;
+      bottom: 3px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: transform 0.3s;
+    }
+    
+    .toggle-container input:checked + span {
+      background-color: #2196F3;
+    }
+    
+    .toggle-container input:checked + span:before {
+      transform: translateX(20px);
+    }
+    
+    /* Desktop Mode */
+    @media screen and (min-width: 768px) {
+      .container {
+        flex-direction: row;
+      }
+      
+      .form-container {
+        width: 20%;
+      }
+      
+      .background-image {
+        background-image: url('your-desktop-wallpaper.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 75%;
+        height: 100vh;
+      }
+    }
+    
+    /* Mobile Mode */
+    @media screen and (max-width: 767px) {
+      .background-image {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="toggle-container">
+    <label>
+      <input type="checkbox" id="theme-toggle">
+      <span></span>
+    </label>
+  </div>
+
+  <div class="container">
+    <div class="form-container">
+      <div class="logo">
+        <img src="your-logo.png" alt="Logo">
+      </div>
+      
+      <form>
+        Username
+        <input type="text" placeholder="" required>
+        Password
+        <input type="password" placeholder="" required>
+        <input type="submit" value="Login">
+        <input type="submit" value="sign up">
+      </form>
+    </div>
+    <div class="background-image"></div>
+  </div>
+
+  <script>
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('change', function() {
+      if (this.checked) {
+        body.classList.add('dark-theme');
+      } else {
+        body.classList.remove('dark-theme');
+      }
+    });
+  </script>
+</body>
+</html>
